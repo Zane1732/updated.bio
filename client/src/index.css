@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: monospace;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(143, 77, 172, 0.02),
+    rgba(91, 119, 190, 0.02),
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: bg-pulse 12s infinite alternate;
+}
+
+@keyframes bg-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.glitch-text {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.7),
+              0 0 4px rgba(255, 255, 255, 0.4);
+  animation: glitch 6s infinite alternate;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 0.6), -1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  20% {
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 0.6), -1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  21% {
+    text-shadow: -1px 0 0 rgba(255, 255, 255, 0.6), 1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  40% {
+    text-shadow: -1px 0 0 rgba(255, 255, 255, 0.6), 1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  41% {
+    text-shadow: 0.5px -0.5px 0 rgba(255, 255, 255, 0.6), -0.5px 0.5px 0 rgba(255, 255, 255, 0.6);
+  }
+  60% {
+    text-shadow: 0.5px -0.5px 0 rgba(255, 255, 255, 0.6), -0.5px 0.5px 0 rgba(255, 255, 255, 0.6);
+  }
+  61% {
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 0.6), -1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  80% {
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 0.6), -1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  81% {
+    text-shadow: 0.5px -0.5px 0 rgba(255, 255, 255, 0.6), -0.5px 0.5px 0 rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0.5px -0.5px 0 rgba(255, 255, 255, 0.6), -0.5px 0.5px 0 rgba(255, 255, 255, 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
